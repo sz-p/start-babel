@@ -8,7 +8,7 @@
 **原理:**babel 利用 babylon 解析器进行语法解析。解析成 AST（抽象语法树）后，经过一定的规则对这个树进行处理后再生成新的语法树。最终新的语法树在生成对应的合法的 Javascript 语法。
 
 ### babel主要工作流程
-![](https://img2018.cnblogs.com/blog/670552/201812/670552-20181205212510553-1362113919.png)
+![](https://img.sz-p.cn/babel-01.jpg)
 #### AST(Abstract Syntax Tree)
 AST，就是编译时常说的抽象语法树。树状结构可以帮助我们更好的索引和操作数据结构。例如我们前端三板斧 HTML/CSS/Javascript，而我们平常认知最深的 HTML DOM 树，通过一棵树就可以表达整个页面结构，而 CSS 和 Javascript 都可以通过编译器将语法解析成 AST 抽象语法树。
 
@@ -23,7 +23,7 @@ if(3 > 5) {
 }
 ```
 简单画个示意图，部分属性也精简了一下。
-![](https://img2018.cnblogs.com/blog/670552/201812/670552-20181205212523750-1252562475.png)
+![](https://img.sz-p.cn/babel-02.jpg)
 我们可以看到，所有的 AST 树的根结点都是 Program 节点。但即使一个非常简单的 if 判断语法对应的都是一支比较复杂的树结构。而 if 语句对应的最重要的三个属性就是 consequent/test/alternate。判断分支内是一个 BinaryExpression（二元表达式），而在 ture/false 分支内则是 CallExpression（函数调用表达式），而调用的函数来自 MemberExpression（成员表达式）。
 
 涉及到的一些常用属性及描述
